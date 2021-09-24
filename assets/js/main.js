@@ -1,45 +1,49 @@
 let speech = new webkitSpeechRecognition();
 speech.lang = 'ja-JP';
 
-let start_btn = document.getElementById('start_btn');
-let stop_btn = document.getElementById('stop_btn');
-let content   = document.getElementById('content');
-let download_btn = document.getElementById('download_btn');
-// 音声認識をスタート
-start_btn.addEventListener('click' , function() {
+let $start_btn    = document.getElementById('start_btn');
+let $stop_btn     = document.getElementById('stop_btn');
+let $content      = document.getElementById('content');
+let $download_btn = document.getElementById('download_btn');
+
+let speechFlag = false;
+
+$start_btn.addEventListener('click', () => {
     speech.start();
+    speechFlag = true;
+    console.log('音声認識サービスを開始します');
 });
 
-// 音声認識をストップ
-stop_btn.addEventListener('click' , function() {
-    speech.start();
+$stop_btn.addEventListener('click', () => {
+    speech.stop();
+    speechFlag = false;
+    console.log('音声認識サービスを停止します');
 });
 
-//音声自動文字起こし機能
-speech.onresult = function(e) {
-     speech.stop();
+speech.onresult = (e) => {
      if(e.results[0].isFinal){
-         var autotext =  e.results[0][0].transcript
-         console.log(e);
-         console.log(autotext);
-         content.innerHTML += autotext + "\n";
+        let autotext =  e.results[0][0].transcript
+        $content.innerHTML += autotext + "\n";
       }
  }  
- speech.onend = () => { 
-    speech.start() 
- };
 
+speech.onend = () => {
+    if(speechFlag == true){
+        speech.start();
+    } else {
+        speech.stop();
+    }
+};
 
-//文字起こしした内容をダウンロードする
-download_btn.addEventListener('click', function() {
-
-    let content_value = document.getElementById('content').value;
+$download_btn.addEventListener('click', function() {
+    let content_value = content.value;
     let blob = new Blob([content_value]);
     let blobURL = window.URL.createObjectURL(blob);
     let a = document.createElement('a');
     a.href = blobURL;
-    a.download = 'kiroku.txt';
+    a.download = 'content.txt';
     document.body.appendChild(a);
     a.click();
     a.parentNode.removeChild(a);
 });
+
