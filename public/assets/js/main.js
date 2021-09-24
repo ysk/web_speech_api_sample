@@ -9,12 +9,16 @@ let $download_btn = document.getElementById('download_btn');
 let speechFlag = false;
 
 $start_btn.addEventListener('click', () => {
+    $start_btn.classList.add("active");
+    $stop_btn.classList.remove("active");
     speech.start();
     speechFlag = true;
     console.log('音声認識サービスを開始します');
 });
 
 $stop_btn.addEventListener('click', () => {
+    $start_btn.classList.remove("active");
+    $stop_btn.classList.add("active");
     speech.stop();
     speechFlag = false;
     console.log('音声認識サービスを停止します');

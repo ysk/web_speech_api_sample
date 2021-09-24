@@ -43,10 +43,20 @@ button{
     
 }
 #start_btn{
-    background-color: #006400;
+    background-color: #004F00;
+    border: solid 1px #004F00;
     color: #fff;
 }
+#start_btn.active{
+    background-color: #009F00;
+    border: solid 1px #004F00;
+}
 #stop_btn{
-    background-color: #ff0000;
+    background-color: #BD0000;
+    border: solid 1px #BD0000;
     color: #fff;
+}
+#stop_btn.active{
+    background-color: #FF0000;
+    border: solid 1px #BD0000;
 }
