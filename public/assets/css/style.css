@@ -1,7 +1,6 @@
 body{
     font-family: 'Noto Sans JP', sans-serif;
 }
-
 #container{
     padding: 10px 20px;
 }
@@ -21,7 +20,6 @@ body{
     font-size: 24px;
     margin-bottom: 20px;
 }
-
 .button_area{
     margin-bottom: 20px;
 }
@@ -43,5 +41,4 @@ button{
 #stop_btn{
     background-color: #ff0000;
     color: #fff;
-    
 }
