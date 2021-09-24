@@ -18,13 +18,21 @@ body{
 #title{
     color: #333;
     font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.summary{
     margin-bottom: 20px;
+    font-size: 13px;
+    color: #666;
 }
 .button_area{
     margin-bottom: 20px;
 }
 .info{
     margin-bottom: 20px;
+    line-height: 1.4;
+    font-size: 12px;
 }
 button{
     padding: 10px;

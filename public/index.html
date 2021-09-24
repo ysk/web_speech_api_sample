@@ -11,13 +11,17 @@
 </head>
 <body>
     <div id="container">
-        <h1 id="title">議事録作成補助ツール</h1>
+        <h1 id="title">議事録ちゃん(α)</h1>
+        <p class="summary">精度が微妙な議事録作成支援ツール</p>
         <div class="button_area">
-            <button id="start_btn">▷自動書記開始</button>
-            <button id="stop_btn">□停止</button>
+            <button id="start_btn">▶ 自動書記を開始する</button>
+            <button id="stop_btn">■ 停止</button>
             <p><button id="download_btn">ダウンロードする</button></p>
         </div>
-        <p class="info">ここに文字起こしが表示されます。</p>
+        <p class="info">
+            開始ボタンをタップすると、話した内容が自動で下記に文字起こしされます。<br>
+            ダウンロードボタンをタップすると、文字起こしの内容がテキストで保存されます。<br>
+        </p>
         <textarea id="content"></textarea>
     </div>
 <body>
